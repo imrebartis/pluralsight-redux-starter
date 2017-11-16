@@ -2,7 +2,7 @@ import React, { Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 
-class CoursePage extends Component {
+class CoursesPage extends Component {
     constructor(props, context) {
         super(props, context);
         
@@ -49,4 +49,4 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-export default connect(mapStateToProps)(CoursePage);
+export default connect(mapStateToProps)(CoursesPage);
