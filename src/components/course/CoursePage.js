@@ -1,4 +1,6 @@
 import React, { Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
+import * as courseActions from '../../actions/courseActions';
 
 class CoursePage extends Component {
     constructor(props, context) {
@@ -19,7 +21,8 @@ class CoursePage extends Component {
     }
     
     onClickSave() {
-        alert(`Saving ${this.state.course.title}`);   
+        // alert(`Saving ${this.state.course.title}`); 
+        this.props.dispatch(courseActions.createCourse(this.state.course));  
     }
 
       render() {
@@ -40,5 +43,10 @@ class CoursePage extends Component {
     }
 }
 
+function mapStateToProps(state, ownProps) {
+    return {
+        courses: state.courses
+    };
+}
 
-  export default CoursePage;
+export default connect(mapStateToProps)(CoursePage);
