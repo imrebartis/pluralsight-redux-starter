@@ -5,6 +5,21 @@ export default function courseReducer(state = initialState.courses, action) {
     switch(action.type) {
         case types.LOAD_COURSES_SUCCESS:
             return action.courses;
+
+        case types.CREATE_COURSE_SUCCESS:
+            return [
+                ...state,
+                Object.assign({}, action.course)
+            ];
+
+        case types.UPDATE_COURSE_SUCCESS:
+            return [
+                 // select all the courses, except the one that's updated
+                ...state.filter(course => course.id !== action.course.id),
+                // include the copy of the course passed in in the returned array
+                Object.assign({}, action.course)
+            ];
+
         default:
             return state;
     }
