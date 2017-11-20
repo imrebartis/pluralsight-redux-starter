@@ -52,11 +52,22 @@ ManageCoursePage.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
+function getCourseById(courses, id) {
+  const course = courses.filter(course => course.id == id);
+  if (course.length) return course[0]; // since filter returns an array, have to grab the first.
+  return null;
+}
 
+// ownProps = this component's props
 function mapStateToProps(state, ownProps) {
+  const courseId = ownProps.params.id; // from the path `/course/:id`
 
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
   
+  if (courseId && state.courses.length > 0) {
+    course = getCourseById(state.courses, courseId);
+  }
+
   //transforming the data from the API into
   // the format required for the dropdown
   // (see SelectInput.js' return)
