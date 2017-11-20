@@ -21,7 +21,7 @@ class ManageCoursePage extends React.Component {
 
   // React lifecycle function:
   componentWillReceiveProps(nextProps) {
-    // function called anytime props have changed
+    // function called anytime props have changedpopule
     if (this.props.course.id != nextProps.course.id) {
       // Necessary to populate form when existing course is loaded directly.
       this.setState({course: Object.assign({}, nextProps.course)});
