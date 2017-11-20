@@ -29,7 +29,8 @@ class ManageCoursePage extends React.Component {
 
   saveCourse(event) {
     event.preventDefault();
-    this.props.actions.saveCourse(this.state.course)
+    this.props.actions.saveCourse(this.state.course);
+    this.context.router.push('/courses');
   }
 
   render() {
@@ -78,5 +79,10 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(courseActions, dispatch)
   };
 }
+// Pull in the React Router context so router is available on this.context.router.
+ManageCoursePage.contextTypes = {
+  // this prop is optional in order to avoid a linting warning
+  router: PropTypes.object
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
