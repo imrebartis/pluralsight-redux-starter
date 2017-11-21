@@ -1,13 +1,16 @@
 import React from 'react';
 import expect from 'expect';
 import {mount, shallow} from 'enzyme';
-// importing only the ManageCoursePage class:
+// importing the ManageCoursePage class
+// instead of the connected class:
 import{ManageCoursePage} from './ManageCoursePage';
 
 describe('Manage Course Page', () => {
   it('sets error message when trying to save empty title', () => {
     const props = {
       authors: [],
+      //no-op that solves the "Cannot read 
+      // property 'saveCourse' of undefined" error:
       actions: {saveCourse: () => { return Promise.resolve(); }},
       course: {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''}
     };
