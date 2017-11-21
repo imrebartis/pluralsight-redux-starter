@@ -46,7 +46,7 @@ class ManageCoursePage extends React.Component {
       .catch(error => {
         toastr.error(error);
         this.setState({saving: false});
-      })
+      });
   }
 
   redirect() {
