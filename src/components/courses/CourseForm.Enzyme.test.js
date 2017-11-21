@@ -1,4 +1,4 @@
-import expect from 'expect';
+import expect from 'expect'; // assertion library
 import React from 'react';
 import {mount, shallow} from 'enzyme';
 import CourseForm from './CourseForm';
