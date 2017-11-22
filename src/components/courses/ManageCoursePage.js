@@ -60,6 +60,7 @@ export class ManageCoursePage extends React.Component {
     }
 
     this.setState({saving: true});
+
     this.props.actions.saveCourse(this.state.course)
       .then(() => this.redirect())
       .catch(error => {
@@ -94,6 +95,12 @@ ManageCoursePage.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
+// Pull in the React Router context so router is available on this.context.router.
+ManageCoursePage.contextTypes = {
+  // this prop is optional in order to avoid a linting warning
+  router: PropTypes.object
+};
+
 function getCourseById(courses, id) {
   const course = courses.filter(course => course.id == id);
   if (course.length) return course[0]; // since filter returns an array, have to grab the first.
@@ -122,10 +129,5 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(courseActions, dispatch)
   };
 }
-// Pull in the React Router context so router is available on this.context.router.
-ManageCoursePage.contextTypes = {
-  // this prop is optional in order to avoid a linting warning
-  router: PropTypes.object
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
