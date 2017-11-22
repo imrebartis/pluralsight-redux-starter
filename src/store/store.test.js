@@ -7,6 +7,7 @@ import * as courseActions from '../actions/courseActions';
 describe('Store', function() {
   it('should handle creating courses', function() {
     // arrange
+    // looks like the call to createStore in configureStore.js
     const store = createStore(rootReducer, initialState);
     const course = {
       title: "Clean Code"
