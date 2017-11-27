@@ -6,11 +6,11 @@ import {Link, IndexLink} from 'react-router';
 const Header = ({loading}) => {
     return (
       <nav>
-        <IndexLink to="/" activeClassName="active">Home</IndexLink>
-        {" | "}
-        <Link to="/courses" activeClassName="active">Courses</Link>
-        {" | "}
-        <Link to="/about" activeClassName="active">About</Link>
+        <IndexLink to="/" activeClassName="active" className="btn btn-danger">Home</IndexLink>
+        {"  "}
+        <Link to="/courses" activeClassName="active" className="btn btn-warning">Courses</Link>
+        {"  "}
+        <Link to="/about" activeClassName="active" className="btn btn-primary">About</Link>
         {/* {loading && <LoadingDots interval={100} dots={12}/>} */}
       </nav>
     );
