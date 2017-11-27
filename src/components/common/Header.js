@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Link, IndexLink} from 'react-router';
-import LoadingDots from './LoadingDots';
+// import LoadingDots from './LoadingDots';
 
 // props destructured:
 const Header = ({loading}) => {
@@ -11,7 +11,7 @@ const Header = ({loading}) => {
         <Link to="/courses" activeClassName="active">Courses</Link>
         {" | "}
         <Link to="/about" activeClassName="active">About</Link>
-        {loading && <LoadingDots interval={100} dots={12}/>}
+        {/* {loading && <LoadingDots interval={100} dots={12}/>} */}
       </nav>
     );
 };
